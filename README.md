@@ -116,7 +116,4 @@ generated call number and a rotated genre stamp.
   editing `schema.sql` by hand.
 - Swap SQLite for MySQL/PostgreSQL by changing the DSN in `config.php` — the
   rest of the API is database-agnostic SQL.
-
-## License
-
-MIT — do whatever you'd like with this.
+  
