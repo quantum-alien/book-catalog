@@ -1,0 +1,9 @@
+# Runtime database (auto-generated from database/schema.sql on first request)
+/data/*.sqlite
+/data/*.sqlite-journal
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
