@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading Room — Book Catalog</title>
+<meta name="description" content="A small library catalog of classic and contemporary fiction, searchable and sortable.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="site-header">
+    <div class="site-header__inner">
+        <p class="eyebrow">Est. in a spare room, one shelf at a time</p>
+        <h1 class="site-title">The Reading Room</h1>
+        <p class="site-subtitle">A small catalog of books worth pulling off the shelf.</p>
+    </div>
+</header>
+
+<main class="catalog">
+
+    <section class="catalog-controls" aria-label="Search and filter books">
+        <div class="control control--search">
+            <label for="searchInput" class="control__label">Search</label>
+            <input
+                type="text"
+                id="searchInput"
+                class="control__input"
+                placeholder="Title, author, genre, or keyword…"
+                autocomplete="off"
+            >
+        </div>
+
+        <div class="control">
+            <label for="genreFilter" class="control__label">Genre</label>
+            <select id="genreFilter" class="control__input">
+                <option value="">All genres</option>
+            </select>
+        </div>
+
+        <div class="control">
+            <label for="sortField" class="control__label">Sort by</label>
+            <select id="sortField" class="control__input">
+                <option value="title">Title</option>
+                <option value="author">Author</option>
+                <option value="published_year">Year</option>
+            </select>
+        </div>
+
+        <button id="sortOrderBtn" class="btn btn--ghost" type="button" title="Toggle ascending / descending" aria-label="Toggle sort order">
+            <span class="sort-arrow">A → Z</span>
+        </button>
+
+        <button id="resetBtn" class="btn btn--ghost" type="button">Reset</button>
+    </section>
+
+    <p id="resultCount" class="result-count" role="status" aria-live="polite"></p>
+
+    <section id="bookList" class="shelf" aria-label="Books" aria-live="polite">
+        <!-- Book cards are rendered here by js/app.js -->
+    </section>
+
+    <p id="emptyState" class="empty-state" hidden>
+        No books match your search. Try a different title, author, or genre.
+    </p>
+
+</main>
+
+<footer class="site-footer">
+    <p>Built as a portfolio project — vanilla JS frontend, PHP + SQLite backend.</p>
+</footer>
+
+<!-- Book detail modal, styled as a library catalog card -->
+<div id="bookModal" class="modal" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal__close" type="button" data-close-modal aria-label="Close">&times;</button>
+        <p class="modal__call-number" id="modalCallNumber"></p>
+        <span class="modal__genre-stamp" id="modalGenre"></span>
+        <h2 class="modal__title" id="modalTitle"></h2>
+        <p class="modal__author" id="modalAuthor"></p>
+        <p class="modal__year" id="modalYear"></p>
+        <hr class="modal__divider">
+        <p class="modal__description" id="modalDescription"></p>
+    </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
