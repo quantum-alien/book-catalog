@@ -59,7 +59,7 @@ book-catalog/
 by default on most systems).
 
 ```bash
-git clone https://github.com/<your-username>/book-catalog.git
+git clone https://github.com/quantum-alien/book-catalog.git
 cd book-catalog
 php -S localhost:8000 -t public
 ```
